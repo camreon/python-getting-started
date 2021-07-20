@@ -32,6 +32,6 @@ jobs:
           datadog-api-key: ${{secrets.DATADOG_API_KEY}}
           datadog-application-key: ${{secrets.DATADOG_APPLICATION_KEY}}
           # public-ids: # optional, default is ''
-          tags: CI # optional, default is ''
+          tags: "CI" # optional, default is ''
           # Define whether you want to start (live) or pause (paused) a Synthetic test. Allowed enum values: live,paused
-          new-status: live
+          new-status: "live"
