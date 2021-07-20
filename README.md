@@ -1,4 +1,4 @@
-# Python: Getting Started
+# Python: Getting Started 2
 
 A barebones Django app, which can easily be deployed to Heroku.
 
