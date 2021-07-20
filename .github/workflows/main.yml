@@ -25,12 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Setup Datadog Synthetic Tests
-        run: |
-          export DATADOG_API_KEY=${{secrets.DATADOG_API_KEY}}
-          export DATADOG_APP_KEY=${{secrets.DATADOG_APPLICATION_KEY}}
-          yarn add @datadog/datadog-ci
+      - name: Install Datadog Test Runner
+        run: yarn add @datadog/datadog-ci
           
       - name: Run Datadog Synthetic Tests
         run: |
+          export DATADOG_API_KEY=${{secrets.DATADOG_API_KEY}}
+          export DATADOG_APP_KEY=${{secrets.DATADOG_APPLICATION_KEY}}
           yarn datadog-ci synthetics run-tests --search 'tag:CI'
