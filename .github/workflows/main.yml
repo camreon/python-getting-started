@@ -29,7 +29,7 @@ jobs:
         run: yarn add @datadog/datadog-ci
           
       - name: Run Datadog Synthetic Tests
-        run: |
-          export DATADOG_API_KEY=${{secrets.DATADOG_API_KEY}}
-          export DATADOG_APP_KEY=${{secrets.DATADOG_APPLICATION_KEY}}
-          yarn datadog-ci synthetics run-tests --search 'tag:CI'
+        env: 
+          DATADOG_API_KEY: ${{secrets.DATADOG_API_KEY}}
+          DATADOG_APP_KEY: ${{secrets.DATADOG_APPLICATION_KEY}}
+        run: yarn datadog-ci synthetics run-tests --search 'tag:CI'
